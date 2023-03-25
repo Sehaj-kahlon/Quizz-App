@@ -1,5 +1,6 @@
 .choice-container {
   display: flex;
+  align-items: center;
   margin-bottom: 0.5rem;
   width: 100%;
   font-size: 1.8rem;
@@ -21,4 +22,5 @@
 
 .choice-text {
   padding: 1.5rem;
+  width: 100%;
 }
