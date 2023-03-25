@@ -77,7 +77,7 @@ h3 {
   /* text decoration in set to none because by default the anchor tags are under lined but we do not need that */
   color: #56a5eb;
   background-color: white;
-  border-radius: 5rem;
+  border-radius: 2rem;
 }
 
 .btn:hover {
