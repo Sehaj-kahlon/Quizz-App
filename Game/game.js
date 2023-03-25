@@ -66,7 +66,7 @@ startGame = () => {
 getNewQuestion = () => {
   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     //go to the end page if the questions array is empty
-    return window.location.assign("/end.html");
+    return window.location.assign("../end page/end.html");
   }
   questionCounter++;
   questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
@@ -93,9 +93,9 @@ choices.forEach((choice) => {
     // }
     //or can use a ternary operator
     const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-    
-    if(classToApply === 'correct'){
-        incrementScore(CORRECT_BONUS);
+
+    if (classToApply === "correct") {
+      incrementScore(CORRECT_BONUS);
     }
     //take the parent element of the sleected choice to whome the class will be applied
     selectedChoice.parentElement.classList.add(classToApply);
@@ -108,8 +108,8 @@ choices.forEach((choice) => {
   });
 });
 
-incrementScore = num =>{
-    score += num;
-    scoreText.innerText = score;
-}
+incrementScore = (num) => {
+  score += num;
+  scoreText.innerText = score;
+};
 startGame();
