@@ -50,3 +50,6 @@ let questions = [
     answer: 3,
   },
 ];
+
+const CORRECT_BONUS = 10;
+const
