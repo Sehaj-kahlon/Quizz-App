@@ -1,6 +1,7 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
-
+const questionCounterText = document.getElementById("questionCounter");
+const scoreText = document.getElementById("score");
 let currentQuestion = {}; //this is an object
 let acceptingAnswers = false;
 let score = 0;
@@ -52,7 +53,7 @@ let questions = [
 ];
 
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 5;
+const MAX_QUESTIONS = questions.length;
 
 startGame = () => {
   questionCounter = 0;
@@ -68,6 +69,7 @@ getNewQuestion = () => {
     return window.location.assign("/end.html");
   }
   questionCounter++;
+  questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
@@ -91,7 +93,10 @@ choices.forEach((choice) => {
     // }
     //or can use a ternary operator
     const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
-    console.log(classToApply);
+    
+    if(classToApply === 'correct'){
+        incrementScore(CORRECT_BONUS);
+    }
     //take the parent element of the sleected choice to whome the class will be applied
     selectedChoice.parentElement.classList.add(classToApply);
     //now i want some delay between adding and removing classes
@@ -102,4 +107,9 @@ choices.forEach((choice) => {
     // console.log(selectedAnswer);
   });
 });
+
+incrementScore = num =>{
+    score += num;
+    scoreText.innerText = score;
+}
 startGame();
