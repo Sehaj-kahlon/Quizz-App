@@ -84,9 +84,22 @@ choices.forEach((choice) => {
     if (!acceptingAnswers) return;
     acceptingAnswers = false;
     const selectedChoice = e.target;
-    const selectedAnswer = selectedChoice.dataset["number"];
-    console.log(selectedAnswer);
-    getNewQuestion();
+    const selectedAnswer = selectedChoice.dataset["number"]; //this returns a string
+    // const classToApply = 'incorrect';
+    // if(selectedAnswer == currentQuestion.answer){
+    //     classToApply = 'correct';
+    // }
+    //or can use a ternary operator
+    const classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+    console.log(classToApply);
+    //take the parent element of the sleected choice to whome the class will be applied
+    selectedChoice.parentElement.classList.add(classToApply);
+    //now i want some delay between adding and removing classes
+    setTimeout(() => {
+      selectedChoice.parentElement.classList.remove(classToApply);
+      getNewQuestion();
+    }, 1000);
+    // console.log(selectedAnswer);
   });
 });
 startGame();
