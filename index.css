@@ -44,9 +44,9 @@ h3 {
   max-width: 80 rem;
   margin: 0 auto;
 }
-.container > * {
+/* .container > * {
   width: 100%;
-}
+} */
 .flex-column {
   display: flex;
   flex-direction: column;
