@@ -10,20 +10,45 @@ let availableQuestions = [];
 // questions array
 
 //using fetch API to get the question from local file i.e questions.json
-let questions = [{},{},{},{},{}];
+let questions = [{}, {}, {}, {}, {}];
 
 //promise function?? response
 //fetch rturns a promise
-fetch("../questions.json")
+// fetch("../questions.json")
+//   .then((res) => {
+//     return res.json();
+//   })
+//   .then((loadedQuestions) => {
+//     // console.log(loadedQuestions);
+//     questions = loadedQuestions;
+//     console.log(loadedQuestions.length);
+//     startGame();
+//   }).catch(err =>{
+//     console.error(err);
+//   });
+fetch("https://opentdb.com/api.php?amount=50")
   .then((res) => {
     return res.json();
   })
   .then((loadedQuestions) => {
     // console.log(loadedQuestions);
-    questions = loadedQuestions;
-    console.log(loadedQuestions.length);
+    // questions = loadedQuestions;
+    console.log(loadedQuestions);
+    questions = loadedQuestions.results.map((loadedQuestions) => {
+      const formattedQuestion = {
+        question: loadedQuestions.question,
+      };
+      const answerChoices = [...loadedQuestions.incorrect_answers];
+      formattedQuestion.answer = Math.floor(Math.random() * 3) + 1;
+      answerChoices.splice(formattedQuestion.answer - 1, 0, loadedQuestions.correct_answer);
+      answerChoices.forEach((choice, index) => {
+        formattedQuestion["choice" + (index + 1)] = choice;
+      });
+      return formattedQuestion;
+    });
     startGame();
-  }).catch(err =>{
+  })
+  .catch((err) => {
     console.error(err);
   });
 const CORRECT_BONUS = 10;
