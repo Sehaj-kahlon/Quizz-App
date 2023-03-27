@@ -21,10 +21,11 @@ saveHighScore = (e) => {
     name: username.value,
   };
   highScore.push(Score);
+  //sorting the scores
   highScore.sort((a, b) => b.score - a.score);
-  //keep upto 5 max scores 
+  //keep upto 5 max scores
+  highScore.splice(MAX_HIGH_SCORES);
   localStorage.setItem("highScores", JSON.stringify(highScore));
-  highScore.splice(5);
 
   console.log(highScore);
 };
