@@ -36,10 +36,31 @@
   display: flex;
   justify-content: space-between;
 }
-.hud-prefix{
-    text-align: center;
-    font-size: 2rem;
+.hud-prefix {
+  text-align: center;
+  font-size: 2rem;
 }
-.hud-main-text{
-    text-align: center;
+.hud-main-text {
+  text-align: center;
+}
+
+/* LOADER */
+#loader {
+  border: 1.6rem solid white;
+  border-radius: 50%;
+  /* provides a circular effect border-radius */
+  border-top: 1.6rem solid #56a5eb;
+  width: 12rem;
+  height: 12rem;
+  animation: spin 2s linear infinite;
+}
+/* to make it spin use animation */
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

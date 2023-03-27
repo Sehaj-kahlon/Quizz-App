@@ -2,6 +2,8 @@ const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const questionCounterText = document.getElementById("questionCounter");
 const scoreText = document.getElementById("score");
+const loader = document.getElementById("loader");
+const game = document.getElementById("game");
 let currentQuestion = {}; //this is an object
 let acceptingAnswers = false;
 let score = 0;
@@ -26,7 +28,7 @@ let questions = [{}, {}, {}, {}, {}];
 //   }).catch(err =>{
 //     console.error(err);
 //   });
-fetch("https://opentdb.com/api.php?amount=50")
+fetch("https://opentdb.com/api.php?amount=50&type=multiple")
   .then((res) => {
     return res.json();
   })
@@ -61,6 +63,8 @@ startGame = () => {
   //   using spread operator making an entire copy of the questions array
   console.log(availableQuestions.length);
   getNewQuestion();
+  game.classList.remove("hidden");
+  loader.classList.add("hidden");
 };
 getNewQuestion = () => {
   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
