@@ -35,7 +35,7 @@ fetch("https://opentdb.com/api.php?amount=50&type=multiple")
   .then((loadedQuestions) => {
     // console.log(loadedQuestions);
     // questions = loadedQuestions;
-    console.log(loadedQuestions);
+    // console.log(loadedQuestions);
     questions = loadedQuestions.results.map((loadedQuestions) => {
       const formattedQuestion = {
         question: loadedQuestions.question,
@@ -61,7 +61,7 @@ startGame = () => {
   score = 0;
   availableQuestions = [...questions];
   //   using spread operator making an entire copy of the questions array
-  console.log(availableQuestions.length);
+  // console.log(availableQuestions.length);
   getNewQuestion();
   game.classList.remove("hidden");
   loader.classList.add("hidden");
@@ -92,6 +92,7 @@ choices.forEach((choice) => {
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset["number"]; //this returns a string
     var correct_choice;
+    //function to get the correct_choice element 
     if (currentQuestion.answer == 1) {
       correct_choice = document.getElementById("1");
     } else if (currentQuestion.answer == 2) {
@@ -103,8 +104,8 @@ choices.forEach((choice) => {
     }
 
     //both these are numbers option numbers
-    console.log(selectedChoice); //this will return the entire element of the selected option
-    console.log(correct_choice);
+    // console.log(selectedChoice); //this will return the entire element of the selected option
+    // console.log(correct_choice);
     // console.log(selectedAnswer); //this will return the option numbrt of the selected answer
 
     // const classToApply = 'incorrect';
