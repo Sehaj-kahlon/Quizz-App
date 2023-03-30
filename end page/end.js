@@ -26,6 +26,6 @@ saveHighScore = (e) => {
   //keep upto 5 max scores
   highScore.splice(MAX_HIGH_SCORES);
   localStorage.setItem("highScores", JSON.stringify(highScore));
-
+  alert("HIgh Score Saved");
   console.log(highScore);
 };
