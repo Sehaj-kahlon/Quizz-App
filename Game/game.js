@@ -91,6 +91,22 @@ choices.forEach((choice) => {
     acceptingAnswers = false;
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset["number"]; //this returns a string
+    var correct_choice;
+    if (currentQuestion.answer == 1) {
+      correct_choice = document.getElementById("1");
+    } else if (currentQuestion.answer == 2) {
+      correct_choice = document.getElementById("2");
+    } else if (currentQuestion.answer == 3) {
+      correct_choice = document.getElementById("3");
+    } else if (currentQuestion.answer == 4) {
+      correct_choice = document.getElementById("4");
+    }
+
+    //both these are numbers option numbers
+    console.log(selectedChoice); //this will return the entire element of the selected option
+    console.log(correct_choice);
+    // console.log(selectedAnswer); //this will return the option numbrt of the selected answer
+
     // const classToApply = 'incorrect';
     // if(selectedAnswer == currentQuestion.answer){
     //     classToApply = 'correct';
@@ -101,13 +117,16 @@ choices.forEach((choice) => {
     if (classToApply === "correct") {
       incrementScore(CORRECT_BONUS);
     }
+
     //take the parent element of the sleected choice to whome the class will be applied
     selectedChoice.parentElement.classList.add(classToApply);
+    correct_choice.parentElement.classList.add("correct");
     //now i want some delay between adding and removing classes
     setTimeout(() => {
       selectedChoice.parentElement.classList.remove(classToApply);
+      correct_choice.parentElement.classList.remove("correct");
       getNewQuestion();
-    }, 1000);
+    }, 1500);
     // console.log(selectedAnswer);
   });
 });
@@ -116,4 +135,3 @@ incrementScore = (num) => {
   score += num;
   scoreText.innerText = score;
 };
-
