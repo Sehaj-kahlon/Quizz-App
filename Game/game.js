@@ -92,7 +92,7 @@ choices.forEach((choice) => {
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset["number"]; //this returns a string
     var correct_choice;
-    //function to get the correct_choice element 
+    //function to get the correct_choice element
     if (currentQuestion.answer == 1) {
       correct_choice = document.getElementById("1");
     } else if (currentQuestion.answer == 2) {
@@ -120,12 +120,14 @@ choices.forEach((choice) => {
     }
 
     //take the parent element of the sleected choice to whome the class will be applied
+    //now i want some delay between adding and removing classes
     selectedChoice.parentElement.classList.add(classToApply);
     correct_choice.parentElement.classList.add("correct");
-    //now i want some delay between adding and removing classes
     setTimeout(() => {
-      selectedChoice.parentElement.classList.remove(classToApply);
-      correct_choice.parentElement.classList.remove("correct");
+      {
+        selectedChoice.parentElement.classList.remove(classToApply);
+        correct_choice.parentElement.classList.remove("correct");
+      }
       getNewQuestion();
     }, 1500);
     // console.log(selectedAnswer);
