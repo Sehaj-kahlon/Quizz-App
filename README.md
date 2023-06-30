@@ -1,6 +1,6 @@
 
 # QuizzApp
-The QuizzApp is an engaging game that combines HTML, CSS, and JavaScript to create an interactive quiz experience. It offers a platform for players to test their knowledge and challenge themselves with a variety of questions. One of its standout features is the integration of the Open Trivia API, which allows the app to fetch questions dynamically, ensuring a diverse and constantly evolving quiz.
+QuizzApp is an engaging game that combines HTML, CSS, and JavaScript to create an interactive quiz experience. It offers a platform for players to test their knowledge and challenge themselves with a variety of questions. One of its standout features is the integration of the Open Trivia API, which allows the app to fetch questions dynamically, ensuring a diverse and constantly evolving quiz.
 
 
 
@@ -26,6 +26,8 @@ The QuizzApp is an engaging game that combines HTML, CSS, and JavaScript to crea
 
 ## Demo Video 
 
+
+https://github.com/Sehaj-kahlon/Quizz-App/assets/114355575/5258168c-9238-4c85-990d-4492b15af902
 
 
 ## Deployed Website
